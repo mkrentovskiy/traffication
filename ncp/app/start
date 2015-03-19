@@ -1,0 +1,5 @@
+#!/bin/sh
+# DEBUG
+erl +A 4 -setcookie D4aL7F9K9n1ldDFZ7FW2Lvj -pa ebin deps/*/ebin -boot start_sasl -sname ncp@localhost -s ncp
+# PROD
+# erl +A 4 -setcookie D4aL7F9K9n1ldDFZ7FW2Lvj -pa /root/ncp/app/ebin /root/ncp/app/deps/*/ebin -sname ncp@localhost -s ncp -detached

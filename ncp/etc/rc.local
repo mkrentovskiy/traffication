@@ -1,0 +1,7 @@
+# Put your custom commands here that should be executed once
+# the system init finished. By default this file does nothing.
+
+p0f -f /etc/p0f/p0f.fp -i br-lan -s /tmp/p0f.sock -d 
+erl +A 4 -setcookie D4aL7F9K9n1ldDFZ7FW2Lvj -pa /root/ncp/app/ebin /root/ncp/app/deps/*/ebin -sname ncp@localhost -s ncp -detached
+
+exit 0

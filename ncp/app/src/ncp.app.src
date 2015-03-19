@@ -1,0 +1,12 @@
+{application, ncp,
+ [
+  {description, ""},
+  {vsn, "1"},
+  {registered, []},
+  {applications, [
+                  kernel,
+                  stdlib
+                 ]},
+  {mod, { ncp_app, []}},
+  {env, []}
+ ]}.

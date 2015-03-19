@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    
+    <link rel="stylesheet" href="/css/bootstrap.min.css" media="all">
+    <style type="text/css">
+        .brick { margin-top: 10px; }
+        .status { padding: 10px; background-color: #eee; font-size: 8pt; color: #999; }
+
+        h1 { font: bold 42pt/38pt sans-serif; color: #336; margin-top: 40px; }
+        .sub { font-size: 8pt; color: #ccc; }
+
+        .host { margin-top: 40px; }
+        .ip { font: normal 24pt/32pt sans-serif; }
+        .mac { font: normal 16pt/24pt sans-serif; color: #999; }
+        .os { font: normal 12pt/18pt sans-serif; }
+        .services { font: normal 12pt/18pt sans-serif; }
+
+        .r { text-align: right; }
+        .gh { margin-top: 20px; color: #999; }
+    </style> 
+    
+    <script type="text/javascript" src="/js/jquery.min.js"></script>
+    <script type="text/javascript" src="/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="/js/sockjs.min.js"></script>
+    <script type="text/javascript" src="/js/d3.min.js"></script>
+    <script type="text/javascript" src="/js/moment-with-langs.min.js"></script>
+    <script type="text/javascript" src="/js/bert.js"></script>
+    <script type="text/javascript" src="/js/app.js"></script>
+</head>
+<body>
+    <div class="container">
+        <div class="status row">
+            <div id="con_state" class="col-md-6"></div>
+            <div id="uptime" class="col-md-6 r"></div>
+        </div>
+        <div class="brick">
+            <h1>TCE</h1>
+            <div class="sub">Traffic Classification Engine</div>
+        </div>  
+        <div class="brick">
+            <ul class="nav nav-tabs">
+                <li class="active"><a href="#hostsp" data-toggle="tab">Hosts</a></li>
+                <li><a href="#protop" data-toggle="tab">Protocols</a></li>
+            </ul>
+            <div class="tab-content">
+                <div class="tab-pane fade in active" id="hostsp">
+                    <div id="host_list"></div>            
+                </div>
+                <div class="tab-pane fade" id="protop">
+                    <div id="proto_list"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="hide">
+        <div id="_t_i_host_list" class="host row">
+            <div class="host_info col-md-4">
+                <div class="ip">{ip}</div>
+                <div class="mac">{mac}</div>
+                <div class="hostname">{hostname}</div>
+            </div>
+            <div class="col-md-8">
+                <table class="table host_params">
+                    <tbody>
+                        <tr class="_t_host_param hide">
+                            <td class="key">{key}</td>
+                            <td class="r value">{value}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <div id="_t_i_proto_list" class="proto brick">
+            <div class="panel panel-default">
+                <div class="panel-heading ip">{ip}</div>
+                <table class="table proto_params">
+                    <tbody>
+                        <tr class="_t_proto_param hide">
+                            <td class="proto_name">{key}</td>
+                            <td class="r in_pkt">{value}</td>
+                            <td class="r in_b">{value}</td>
+                            <td class="r out_pkt">{value}</td>
+                            <td class="r out_b">{value}</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <div class="panel-body">
+                    <div class="col-md-3 gh">In, pkts</div>
+                    <div class="col-md-3 gh">In, bytes</div>
+                    <div class="col-md-3 gh">Out, pkts</div>
+                    <div class="col-md-3 gh">Out, bytes</div>
+                    <div class="g_in_pkt col-md-3"></div>
+                    <div class="g_in_b col-md-3"></div>
+                    <div class="g_out_pkt col-md-3"></div>
+                    <div class="g_out_b col-md-3"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
